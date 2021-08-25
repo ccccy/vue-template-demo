@@ -31,6 +31,13 @@ module.exports = {
   productionSourceMap: false,
   devServer: {
     port: port,
+    proxy: {
+      '/api/': {
+        target: 'http://127.0.0.1:8888',
+        ws: true,
+        changeOrigin: true
+      }
+    },
     open: true,
     overlay: {
       warnings: false,
